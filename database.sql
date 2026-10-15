@@ -4,6 +4,23 @@ CREATE DATABASE IF NOT EXISTS team3_db
 
 USE team3_db;
 
+-- Public quote, consultation, installation, and maintenance requests.
+-- This additive table does not alter existing customer or employee records.
+CREATE TABLE IF NOT EXISTS service_requests (
+    request_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    service_type ENUM('Quote','Consultation','Installation','Maintenance') NOT NULL,
+    preferred_date DATE NULL,
+    address TEXT NOT NULL,
+    message TEXT,
+    status ENUM('Pending','Confirmed','Completed','Cancelled') DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_service_requests_status_created (status, created_at)
+);
+
 CREATE TABLE IF NOT EXISTS customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -164,17 +181,7 @@ VALUES (
     'IT'
 )
 ON DUPLICATE KEY UPDATE
-    first_name = VALUES(first_name),
-    middle_name = VALUES(middle_name),
-    last_name = VALUES(last_name),
-    birthdate = VALUES(birthdate),
-    gender = VALUES(gender),
-    email = VALUES(email),
-    phone_number = VALUES(phone_number),
-    address = VALUES(address),
-    username = VALUES(username),
-    password = VALUES(password),
-    department = VALUES(department);
+    employee_id = employee_id;
 
 INSERT INTO customers (
     first_name,
@@ -300,14 +307,5 @@ VALUES (
     '$2y$10$u3W/QEQ0A26vW.4TPks2C.sVstphnOWJbLprxLw.jv6yVpADdvzI.'
 )
 ON DUPLICATE KEY UPDATE
-    first_name = VALUES(first_name),
-    middle_name = VALUES(middle_name),
-    last_name = VALUES(last_name),
-    birthdate = VALUES(birthdate),
-    gender = VALUES(gender),
-    email = VALUES(email),
-    phone_number = VALUES(phone_number),
-    address = VALUES(address),
-    username = VALUES(username),
-    password = VALUES(password);
+    customer_id = customer_id;
 
