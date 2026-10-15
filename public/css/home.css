@@ -102,6 +102,8 @@ header .navbar {
 
 /* Hero - existing background image and overlay retained */
 .hero-section {
+    position: relative;
+    isolation: isolate;
     min-height: calc(100vh - 82px);
     display: flex;
     align-items: center;
@@ -112,7 +114,31 @@ header .navbar {
     background-position: center;
     background-repeat: no-repeat;
 }
+.hero-section::before,
+.hero-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+.hero-section::before {
+    z-index: 0;
+    bottom: 0;
+    height: 58px;
+    background: rgba(228, 151, 8, .72);
+    clip-path: polygon(0 15%, 13% 56%, 28% 82%, 43% 48%, 59% 76%, 76% 54%, 100% 18%, 100% 100%, 0 100%);
+}
+.hero-section::after {
+    z-index: 0;
+    bottom: -1px;
+    height: 30px;
+    background: var(--primary-color);
+    clip-path: polygon(0 24%, 15% 73%, 31% 42%, 47% 76%, 63% 34%, 81% 69%, 100% 30%, 100% 100%, 0 100%);
+}
 .hero-content {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     min-height: calc(100vh - 82px);
@@ -187,7 +213,12 @@ header .navbar {
 .sub { color: #626262; font-size: 1rem; line-height: 1.7; margin-top: 8px; }
 
 /* Benefits */
-.benefits { padding: 90px 0; background: linear-gradient(rgba(252,190,7,.08), rgba(252,190,7,.15)); }
+.benefits {
+    padding: 90px 0;
+    background:
+        linear-gradient(rgba(255,255,255,.28), rgba(255,255,255,.28)),
+        url("../images/backgroundsolar.avif") center / cover no-repeat;
+}
 .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
 .card {
     display: flex;
@@ -235,14 +266,30 @@ header .navbar {
 .fact b { font-size: 1.05rem; margin-bottom: 5px; color: #a96e00; }
 .fact span { color: #555; font-size: .94rem; }
 /* Services */
-.services-section { padding: 90px 0; background: #fff; }
+.services-section {
+    padding: 90px 0;
+    background:
+        linear-gradient(rgba(255,255,255,.32), rgba(255,255,255,.32)),
+        url("../images/backgroundsolar2.webp") center / cover no-repeat;
+}
 .service-title { color: var(--dark-color); font-size: clamp(2rem, 3.4vw, 2.7rem); margin-bottom: 8px; }
 .services-section .card { height: 100%; }
 .services-section .service-button { margin-top: auto; width: 100%; text-align: center; }
 
+/* News and updates */
+.news-section { padding: 90px 0; background: #f8f9fa; }
+.news-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.news-card { overflow: hidden; background: #fff; border: 1px solid #ececec; border-radius: 12px; box-shadow: 0 5px 18px rgba(0,0,0,.06); }
+.news-card > img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.news-card-content { padding: 20px; }
+.news-card h3 { color: var(--dark-color); font-size: 1.05rem; line-height: 1.45; margin-bottom: 10px; }
+.news-card p { color: #555; font-size: .9rem; line-height: 1.7; }
+
 .reviews-section {
     padding: 80px 20px;
-    background: #f5f9f6;
+    background:
+        linear-gradient(rgba(255,255,255,.34), rgba(255,255,255,.34)),
+        url("../images/solarpanellll.jpg") center / cover no-repeat;
 }
 
 .reviews-container {
@@ -395,7 +442,8 @@ header .navbar {
 @media (max-width: 768px) {
 
     .reviews-section,
-    .faq-section {
+    .faq-section,
+    .news-section {
         padding: 50px 15px;
     }
 
@@ -446,6 +494,9 @@ header .navbar {
     .footer-container { grid-template-columns: 1fr 1fr; gap: 32px; }
     .footer-column:first-child { grid-column: 1 / -1; }
 }
+@media (max-width: 1000px) {
+    .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 560px) {
     .section-content { width: min(100% - 30px, var(--max-width)); }
     .navbar .nav-logo .logo-text { font-size: 1.25rem; }
@@ -458,8 +509,8 @@ header .navbar {
     .hero-section .hero-details .subtitle { font-size: .98rem; }
     .buttons { flex-direction: column; align-items: stretch; }
     .hero-section .hero-details .button { width: 100%; }
-    .about-section, .benefits, .services-section, .reviews-section { padding: 65px 0; }
-    .facts, .grid3, .footer-container { grid-template-columns: 1fr; }
+    .about-section, .benefits, .services-section, .news-section, .reviews-section { padding: 65px 0; }
+    .facts, .grid3, .news-grid, .footer-container { grid-template-columns: 1fr; }
     .footer-column:first-child { grid-column: auto; }
     .card { padding: 27px 23px; }
     .reviews-empty { padding: 32px 20px; }

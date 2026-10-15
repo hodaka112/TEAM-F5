@@ -20,6 +20,7 @@
             <ul class="nav-menu">
     <li class="nav-item"><a href="#top" class="nav-link">Home</a></li>
     <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+    <li class="nav-item"><a href="#news" class="nav-link">News</a></li>
     <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
     <li class="nav-item"><a href="#reviews" class="nav-link">Reviews</a></li>
     <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
@@ -134,6 +135,47 @@
                         <p>Regular check-ups and cleaning keep your system producing at its best.</p>
                         <ul><li>Inspections</li><li>Repairs and support</li></ul>
                         <a class="service-button" href="<?= site_url('requests?service=Maintenance') ?>">Schedule maintenance</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- News and updates -->
+        <section class="news-section" id="news" aria-labelledby="news-heading">
+            <div class="section-content">
+                <div class="section-heading">
+                    <p class="section-kicker">FROM OUR TEAM</p>
+                    <h2 id="news-heading">Solar News &amp; Updates</h2>
+                    <p class="sub">Helpful updates on solar installation, system care, and clean energy.</p>
+                </div>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <img src="<?= base_url('images/newsarea1.webp') ?>" alt="Solar installers positioning a panel on a solar farm" loading="lazy">
+                        <div class="news-card-content">
+                            <h3>What to Expect During Installation</h3>
+                            <p>A professional installation includes careful panel placement, secure mounting, and checks before the system is put into service.</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="<?= base_url('images/newsarea2.jpg') ?>" alt="Technicians installing rooftop solar panels" loading="lazy">
+                        <div class="news-card-content">
+                            <h3>Why Proper Panel Placement Matters</h3>
+                            <p>Good layout and secure roof mounting help a solar system collect sunlight effectively while keeping the installation dependable.</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="<?= base_url('images/newsarea3.jpg') ?>" alt="Installer fastening solar panel hardware" loading="lazy">
+                        <div class="news-card-content">
+                            <h3>Installation Details That Protect Your System</h3>
+                            <p>Careful fastening and tidy cable routing are small details that support the safety and long-term performance of a solar setup.</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="<?= base_url('images/newsarea4.jpg') ?>" alt="Technician inspecting a solar panel surface" loading="lazy">
+                        <div class="news-card-content">
+                            <h3>Simple Solar Panel Care</h3>
+                            <p>Periodic visual checks and professional maintenance can help identify issues early and keep your panels working as intended.</p>
+                        </div>
                     </article>
                 </div>
             </div>
