@@ -18,18 +18,6 @@ class ServiceRequests extends Controller
         ]);
     }
 
-    public function index()
-    {
-        if (session()->get('account_type') !== 'employee') {
-            return redirect()->to(site_url('login'))->with('error', 'Sign in with an employee account to view service requests.');
-        }
-
-        return view('service_requests/index', [
-            'requests' => (new ServiceRequestModel())->recentRequests(),
-            'notice' => session()->getFlashdata('notice'),
-        ]);
-    }
-
     public function create()
     {
         $rules = [
@@ -59,7 +47,7 @@ class ServiceRequests extends Controller
                 'message' => trim((string) $this->request->getPost('message')) ?: null,
             ]);
             if (! $saved) throw new \RuntimeException('Database rejected the service request.');
-            return redirect()->to(site_url('requests'))->with('notice', 'Your request has been received. Our team will contact you.');
+            return redirect()->to(site_url('requests'))->with('notice', 'Your request has been submitted successfully. Our team will contact you.');
         } catch (Throwable $e) {
             log_message('error', 'Service request could not be saved (database error code {code}).', ['code' => (int) $e->getCode()]);
             return redirect()->to(site_url('requests'))->withInput()->with('notice', 'We could not save your request. Please try again later.');

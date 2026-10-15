@@ -18,5 +18,4 @@ $routes->get('login', 'Auth::login');
 $routes->post('login', 'Auth::authenticate');
 $routes->post('logout', 'Auth::logout');
 $routes->get('requests', 'ServiceRequests::form');
-$routes->get('employee/requests', 'ServiceRequests::index');
 $routes->post('requests', 'ServiceRequests::create');

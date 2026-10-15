@@ -40,15 +40,12 @@ For Apache, point the virtual host document root at this project's `public/` fol
 - `GET /requests?service=Quote|Consultation|Installation|Maintenance` and `POST /requests` — single shared request form with server-side validation
 - `GET|POST /register` — customer account registration
 - `GET|POST /login` and `POST /logout` — sign-in and sign-out
-- `GET /employee/requests` — recent service requests for signed-in employee accounts
 
-All state-changing routes use the global CSRF filter. Registration passwords are hashed; login checks the existing customer/employee tables. Service requests are stored in `service_requests`; the employee view displays up to the latest 100 records.
+All state-changing routes use the global CSRF filter. Registration passwords are hashed; login checks the existing customer/employee tables. Service requests are stored in `team3_db.service_requests`; the team reviews submissions in phpMyAdmin. The site does not provide an employee request dashboard.
 
-Employee request access is restricted to a signed-in employee account. Employee rows exist in the local database, but the application has no employee registration endpoint, administrator role, invitation, or approval workflow. Public employee signup and employee creation through the account model are disabled. Before adding employees, the project needs an authorized provisioning policy (for example, administrator approval or controlled invitations) and a corresponding protected workflow. Existing employees sign in at `/login` by choosing **Employee** and entering the email address or username and password issued to them by the organization. There is no public/default employee credential.
+Employee rows exist in the local database, but the application has no employee registration endpoint, administrator role, invitation, or approval workflow. Public employee signup and employee creation through the account model are disabled. Before adding employees, the project needs an authorized provisioning policy (for example, administrator approval or controlled invitations) and a corresponding protected workflow. Existing employees sign in at `/login` by choosing **Employee** and entering the email address or username and password issued to them by the organization. There is no public/default employee credential.
 
 For local employee-login testing, use credentials for an existing employee supplied by an authorized account holder. The source code and documentation intentionally contain no employee password. The `/register` page creates customer accounts only; changing the posted account type to `employee` is rejected by the controller, and the account model also refuses employee account creation.
-
-The employee request page is read-only. Requests show their current status, but there is no existing authorized status-update route or user interface; status changes require a separately approved workflow.
 
 The hero uses the existing `images/solarcell.jpg` solar-panel photo. The public copy is served from `public/images/solarcell.jpg` so the CodeIgniter document root can load it.
 

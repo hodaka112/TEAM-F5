@@ -26,7 +26,6 @@
     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
     <?php if (session()->get('account_id')): ?>
     <li class="nav-item"><span class="nav-link">Hello, <?= esc(session()->get('account_name')) ?></span></li>
-    <?php if (session()->get('account_type') === 'employee'): ?><li class="nav-item"><a class="nav-link" href="<?= site_url('employee/requests') ?>">Service requests</a></li><?php endif; ?>
     <li class="nav-item"><form action="<?= site_url('logout') ?>" method="post"><?= csrf_field() ?><button class="nav-link" type="submit">Sign out</button></form></li>
     <?php else: ?>
     <li class="nav-item"><a href="<?= site_url('login') ?>" class="nav-link">Sign in</a></li>

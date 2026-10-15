@@ -16,7 +16,6 @@
                 <li class="nav-item"><a href="<?= site_url() ?>#services" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="<?= site_url() ?>#contact" class="nav-link">Contact</a></li>
                 <?php if (session()->get('account_id')): ?>
-                    <?php if (session()->get('account_type') === 'employee'): ?><li class="nav-item"><a href="<?= site_url('employee/requests') ?>" class="nav-link">Service requests</a></li><?php endif; ?>
                     <li class="nav-item"><form action="<?= site_url('logout') ?>" method="post"><?= csrf_field() ?><button class="nav-link" type="submit">Sign out</button></form></li>
                 <?php else: ?>
                     <li class="nav-item"><a href="<?= site_url('login') ?>" class="nav-link">Sign in</a></li>
