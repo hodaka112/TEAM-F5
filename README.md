@@ -1,52 +1,58 @@
 # Sun Son Solar (TEAM-F5)
 
-The active application is CodeIgniter 4. The web document root is `public/`; `public/index.php` dispatches application requests. The root `index.html` forwards visitors to `public/` when the repository is served from a folder.
+This is our Sun Son Solar website. It uses CodeIgniter 4 for the pages and backend features. The active site starts at `public/index.php`. If the project folder is opened through its root, `index.html` sends the visitor to `public/`.
 
-## Requirements
+## What is needed
 
-- XAMPP with PHP 8.2 or newer and the `intl`, `mbstring`, and `mysqli` extensions enabled
-- Composer 2.0.14 or newer
-- MySQL/MariaDB with the existing `team3_db` database
+- XAMPP with PHP 8.2 or newer and the `intl`, `mbstring`, and `mysqli` extensions
+- Composer 2
+- MySQL or MariaDB and the existing `team3_db` database
 
-## XAMPP setup on this machine
+## Set up with XAMPP
 
-1. Start MySQL in the XAMPP Control Panel. This project has been configured against `localhost:3306`, database `team3_db`, username `root`, and the blank local XAMPP password used by the existing `db.php`.
-2. PHP uses `C:\xampp\php\php.ini`. The required `intl` extension is enabled there. If setting up another XAMPP install, uncomment `extension=intl` in its `php.ini` only when `C:\xampp\php\ext\php_intl.dll` (or the equivalent extension DLL) exists, then restart Apache and open a new terminal. Verify with `C:\xampp\php\php.exe -m`.
-3. Copy `.env.example` to `.env` if `.env` does not already exist. Set `database.default.hostname`, `database.default.database`, `database.default.username`, `database.default.password`, and `database.default.port` to that local MySQL instance. Keep `.env` private; it is ignored by Git. Set `cookie.secure = true` only when serving over HTTPS.
-4. Import `database.sql` into the existing `team3_db` only if its original schema has not yet been installed. The script adds `service_requests`; its seed upserts leave matching existing customer and employee rows unchanged. Do not drop or recreate the database.
-5. Install Composer for Windows from [getcomposer.org](https://getcomposer.org/download/) if the ignored local PHAR is absent. Select `C:\xampp\php\php.exe` as the PHP executable, then reopen PowerShell and verify `composer --version`. Install dependencies from the lock file:
+1. Open the XAMPP Control Panel and start MySQL.
+2. This computer uses `C:\xampp\php\php.ini`. I checked that PHP loads `intl`, `mbstring`, and `mysqli`. To check your PHP setup, run:
+
+   ```powershell
+   C:\xampp\php\php.exe -m
+   ```
+
+   If `intl` is missing on another XAMPP installation, enable `extension=intl` in that installation's `php.ini` if its `ext\php_intl.dll` file exists. Restart Apache if you use Apache, then check the modules again.
+3. Keep the existing `.env` file. If it is missing, copy `.env.example` to `.env`. Set the database hostname, database name, username, password, and port for your MySQL setup. The current local setup uses `localhost:3306` and `team3_db`. Do not share `.env` or upload it to Git. Use HTTPS before setting `cookie.secure = true`.
+4. Use `database.sql` only if you still need to add the project schema. It creates the `service_requests` table and its matching customer/employee seed rows are left unchanged if they already exist. Do not drop or recreate `team3_db`.
+5. Install the PHP packages from the project folder:
 
    ```powershell
    C:\xampp\php\php.exe composer.phar install
    ```
 
-   Composer 2.10.3 is available as an ignored local `composer.phar` in this checkout. If you obtain Composer separately, use `composer install` instead. The ZIP extension is optional for the running application; if Composer cannot extract package archives, install/enable PHP ZIP or run `composer install --prefer-source` with Git available.
+   This project includes Composer 2.10.3 as `composer.phar`. That file is local and ignored by Git. If it is missing, install Composer for Windows from [getcomposer.org](https://getcomposer.org/download/) and select `C:\xampp\php\php.exe` when asked for PHP. Then run `composer install`. If package extraction fails, enable PHP ZIP or try `composer install --prefer-source` with Git installed.
 
-## Run
+## Run the website
 
-From the project root:
+From the project folder, run:
 
 ```powershell
 C:\xampp\php\php.exe composer.phar serve
 ```
 
-Open **http://localhost:8080/**. The direct equivalent is `C:\xampp\php\php.exe spark serve --host 127.0.0.1 --port 8080`.
+Then open **http://localhost:8080/**. You can also start it with:
 
-For Apache, point the virtual host document root at this project's `public/` folder, enable `mod_rewrite`, and use `public/.htaccess`.
+```powershell
+C:\xampp\php\php.exe spark serve --host 127.0.0.1 --port 8080
+```
 
-## Application routes
+For Apache, set the document root to this project's `public` folder and enable `mod_rewrite` so `public/.htaccess` can handle the routes.
 
-- `GET /` — Sun Son Solar homepage, preserving the original reference layout
-- `GET /requests?service=Quote|Consultation|Installation|Maintenance` and `POST /requests` — single shared request form with server-side validation
-- `GET|POST /register` — customer account registration
-- `GET|POST /login` and `POST /logout` — sign-in and sign-out
+## Main routes
 
-All state-changing routes use the global CSRF filter. Registration passwords are hashed; login checks the existing customer/employee tables. Service requests are stored in `team3_db.service_requests`; the team reviews submissions in phpMyAdmin. The site does not provide an employee request dashboard.
+- `GET /` opens the homepage.
+- `GET /requests?service=Quote|Consultation|Installation|Maintenance` opens the shared request form. `POST /requests` submits it.
+- `GET` and `POST /register` handle customer registration.
+- `GET` and `POST /login` handle sign in. `POST /logout` signs out.
 
-Employee rows exist in the local database, but the application has no employee registration endpoint, administrator role, invitation, or approval workflow. Public employee signup and employee creation through the account model are disabled. Before adding employees, the project needs an authorized provisioning policy (for example, administrator approval or controlled invitations) and a corresponding protected workflow. Existing employees sign in at `/login` by choosing **Employee** and entering the email address or username and password issued to them by the organization. There is no public/default employee credential.
+Forms that change data use CSRF protection. Registration stores a password hash. Sign in checks the existing customer or employee table. New service requests are saved in `team3_db.service_requests`; the team checks them in phpMyAdmin. There is no employee request dashboard in the site.
 
-For local employee-login testing, use credentials for an existing employee supplied by an authorized account holder. The source code and documentation intentionally contain no employee password. The `/register` page creates customer accounts only; changing the posted account type to `employee` is rejected by the controller, and the account model also refuses employee account creation.
+Registration is for customers only. There is no employee signup, administrator account, invitation, or approval process. Existing employees can sign in at `/login` by choosing **Employee** and using the username or email and password issued by the organization. For testing, ask an authorized account holder for valid employee credentials. Do not use a made-up or default password.
 
-The hero uses the existing `images/solarcell.jpg` solar-panel photo. The public copy is served from `public/images/solarcell.jpg` so the CodeIgniter document root can load it.
-
-The original `registration.html`, `register.php`, `db.php`, and duplicate homepage source files are retained. CodeIgniter routes are the active application entry points when using the documented `public/` document root.
+The homepage hero uses `images/solarcell.jpg`; a copy in `public/images/solarcell.jpg` is served by the site. The older HTML/PHP files are still in the project, but the CodeIgniter routes are used when running the website as described above.
