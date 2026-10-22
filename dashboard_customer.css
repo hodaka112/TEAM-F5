@@ -1,0 +1,748 @@
+
+/* ==========================================
+   SUN SON SOLAR - DASHBOARD THEME
+========================================== */
+
+:root {
+    --orange: #f57c1f;
+    --deep: #b34700;
+    --gold: #ffc542;
+    --cream: #fff7e8;
+    --border: #f0dcbb;
+    --ink: #3a2a18;
+    --muted: #806b57;
+    --white: #fff;
+}
+
+/* ==========================================
+   GENERAL STYLING
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Poppins, Arial, sans-serif;
+    color: var(--ink);
+
+    /* Solar panel background image */
+    background-image:
+        linear-gradient(
+            rgba(99, 78, 40, 0.5),
+            rgba(99, 78, 40, 0.5)
+        ),
+        url("solarcell.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+a {
+    color: inherit;
+}
+
+/* ==========================================
+   DASHBOARD LAYOUT
+========================================== */
+
+.layout {
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
+    min-height: 100vh;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 26px 17px;
+    border-right: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+    overflow: auto;
+}
+
+/* ==========================================
+   BRAND / LOGO
+========================================== */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: var(--deep);
+
+    font-family: Poppins, Arial, sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.brand-symbol {
+    display: grid;
+    place-items: center;
+
+    width: 37px;
+    height: 37px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        var(--orange),
+        var(--gold)
+    );
+
+    color: white;
+}
+
+.brand-logo {
+    width: 44px;
+    height: 44px;
+
+    object-fit: contain;
+    border-radius: 50%;
+
+    background: var(--cream);
+    flex-shrink: 0;
+}
+
+.sidebar small {
+    display: block;
+    color: var(--muted);
+    margin: 8px 0 25px;
+}
+
+/* ==========================================
+   SIDEBAR NAVIGATION
+========================================== */
+
+.nav {
+    display: grid;
+    gap: 7px;
+}
+
+.nav a {
+    display: block;
+
+    padding: 11px 12px;
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.nav a:hover,
+.nav a:focus {
+    background: var(--cream);
+    color: var(--deep);
+}
+
+.nav a.active {
+    background: var(--orange);
+    color: #fff;
+}
+
+.nav a:last-child {
+    border: 1px solid var(--border);
+    color: var(--deep);
+    margin-top: 4px;
+}
+
+.nav a:last-child:hover {
+    background: var(--cream);
+}
+
+/* ==========================================
+   MAIN DASHBOARD CONTENT
+========================================== */
+
+.main {
+    padding: 30px;
+    min-width: 0;
+}
+
+/* ==========================================
+   DASHBOARD HEADER
+========================================== */
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 22px;
+    color: #fff;
+}
+
+.top h1 {
+    margin: 0;
+    font-size: clamp(22px, 3vw, 32px);
+}
+
+.top p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.pill {
+    padding: 9px 14px;
+
+    border-radius: 99px;
+    background: #fff;
+
+    color: var(--deep);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   DASHBOARD PANELS
+========================================== */
+
+.panel {
+    background: #fff;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    padding: 22px;
+    margin-bottom: 18px;
+
+    box-shadow: 0 5px 22px #28211b16;
+}
+
+.panel h2 {
+    margin: 0 0 12px;
+    font-size: 19px;
+    color: var(--deep);
+}
+
+.panel h3 {
+    font-size: 15px;
+    margin: 16px 0 8px;
+}
+
+.panel p,
+.panel li {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* ==========================================
+   STATISTICS CARDS
+========================================== */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(
+        3,
+        minmax(0, 1fr)
+    );
+
+    gap: 15px;
+}
+
+.stat {
+    background: var(--cream);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    padding: 18px;
+}
+
+.stat strong {
+    display: block;
+
+    font-size: 25px;
+    color: var(--deep);
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* ==========================================
+   TWO COLUMN LAYOUT
+========================================== */
+
+.two {
+    display: grid;
+
+    grid-template-columns: repeat(
+        2,
+        minmax(0, 1fr)
+    );
+
+    gap: 18px;
+}
+
+/* ==========================================
+   TABLES
+========================================== */
+
+.table-wrap {
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 500px;
+
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th,
+td {
+    text-align: left;
+
+    padding: 11px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    color: var(--deep);
+    background: var(--cream);
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn {
+    background: linear-gradient(
+        90deg,
+        var(--orange),
+        var(--gold)
+    );
+
+    border: 0;
+    border-radius: 8px;
+
+    padding: 10px 14px;
+
+    font: 600 13px Poppins, Arial;
+    cursor: pointer;
+
+    color: #fff;
+}
+
+.btn.secondary {
+    background: var(--cream);
+    color: var(--deep);
+
+    border: 1px solid var(--border);
+}
+
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   STATUS TAGS
+========================================== */
+
+.tag {
+    display: inline-block;
+
+    padding: 4px 9px;
+
+    border-radius: 99px;
+
+    background: #fff0d8;
+    color: var(--deep);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   FORMS
+========================================== */
+
+.field {
+    display: grid;
+    gap: 6px;
+
+    margin-bottom: 12px;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+
+    border: 1px solid #d7c5ae;
+    background: #fffdf8;
+
+    border-radius: 8px;
+    padding: 11px;
+
+    font: 13px Poppins, Arial;
+}
+
+.field textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.note {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.message {
+    min-height: 20px;
+
+    font-size: 12px;
+    color: var(--deep);
+
+    font-weight: 600;
+}
+
+/* ==========================================
+   DASHBOARD CHART
+========================================== */
+
+.chart {
+    display: flex;
+    align-items: end;
+    gap: 13px;
+
+    height: 145px;
+
+    padding: 15px 8px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.bar {
+    flex: 1;
+
+    background: linear-gradient(
+        var(--gold),
+        var(--orange)
+    );
+
+    border-radius: 7px 7px 0 0;
+
+    position: relative;
+    min-width: 15px;
+}
+
+.bar span {
+    position: absolute;
+
+    bottom: -22px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 10px;
+    color: var(--muted);
+}
+
+/* ==========================================
+   CALENDAR
+========================================== */
+
+.calendar {
+    display: grid;
+
+    grid-template-columns: repeat(
+        7,
+        minmax(0, 1fr)
+    );
+
+    gap: 5px;
+}
+
+.day {
+    background: var(--cream);
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    min-height: 54px;
+
+    padding: 8px;
+    font-size: 12px;
+}
+
+.day b {
+    display: block;
+}
+
+.day em {
+    display: block;
+
+    font-size: 9px;
+    font-style: normal;
+
+    color: var(--deep);
+}
+
+/* ==========================================
+   LISTS AND CHECK-IN INFORMATION
+========================================== */
+
+.list {
+    padding-left: 20px;
+}
+
+.footer-note {
+    font-size: 11px;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.checkin-info {
+    font-size: 13px;
+    line-height: 1.7;
+
+    background: var(--cream);
+
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* ==========================================
+   SUN SON SOLAR - DASHBOARD FOOTER
+========================================== */
+
+.footer-section {
+    background: #ffffff;
+    color: #ffffff;
+
+    width: 100%;
+
+    padding-top: 45px;
+    margin-top: 30px;
+
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* FOOTER CONTAINER */
+
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+    gap: 35px;
+    padding: 0 30px 40px;
+}
+
+/* FOOTER COLUMNS */
+
+.footer-column {
+    min-width: 0;
+}
+
+/* FOOTER COMPANY NAME */
+
+.footer-logo {
+    color: #b34700;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    margin: 0 0 15px;
+}
+
+/* FOOTER HEADINGS */
+
+.footer-column h3 {
+    color: #b34700;
+
+    font-size: 1.05rem;
+    font-weight: 600;
+
+    margin: 0 0 16px;
+}
+
+/* FOOTER TEXT */
+
+.footer-column p {
+    color: #000000;
+
+    font-size: 0.94rem;
+    line-height: 1.8;
+
+    margin: 0 0 8px;
+    overflow-wrap: anywhere;
+}
+
+/* FOOTER BOTTOM */
+
+.footer-bottom {
+    text-align: center;
+
+    padding: 20px;
+
+    border-top: 1px solid rgba(255, 253, 253, 0.15);
+}
+
+.footer-bottom p {
+    color: #000000;
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        height: auto;
+    }
+
+    .nav {
+        grid-template-columns: repeat(
+            3,
+            minmax(0, 1fr)
+        );
+    }
+
+    .main {
+        padding: 18px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px;
+        padding: 0 25px 35px;
+    }
+
+    .footer-column:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .brand {
+        font-size: 18px;
+    }
+
+    .nav {
+        grid-template-columns: repeat(
+            2,
+            minmax(0, 1fr)
+        );
+    }
+
+    .nav a {
+        font-size: 12px;
+    }
+
+    .two,
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    /* MOBILE FOOTER */
+
+    .footer-section {
+        padding-top: 30px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+        padding: 0 20px 30px;
+    }
+
+    .footer-column:first-child {
+        grid-column: auto;
+    }
+
+    .footer-logo {
+        font-size: 1.5rem;
+    }
+
+    .footer-column h3 {
+        font-size: 1rem;
+    }
+
+    .footer-column p {
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+        padding: 18px 15px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.78rem;
+    }
+}
