@@ -64,9 +64,35 @@ class Auth extends Controller
         if (! $account || ! password_verify($password, $account['password'])) {
             return redirect()->back()->withInput()->with('error', 'The sign-in details were not recognized.');
         }
+        if ($type === 'employee' && (int) ($account['is_active'] ?? 1) !== 1) {
+            return redirect()->back()->withInput()->with('error', 'This employee account is inactive. Contact an administrator.');
+        }
         session()->regenerate(true);
-        session()->set(['account_id' => $account[$type . '_id'], 'account_type' => $type, 'account_name' => $account['first_name']]);
-        return redirect()->to('/')->with('notice', 'Signed in successfully.');
+        session()->set([
+            'account_id' => $account[$type . '_id'],
+            'account_type' => $type,
+            'account_role' => $type === 'employee' ? ($account['role'] ?? 'employee') : 'customer',
+            'account_name' => $account['first_name'],
+            'account_email' => $account['email'],
+        ]);
+        $employeeDepartments = ['Installation & Operations', 'Maintenance & Service'];
+        $role = $account['role'] ?? 'employee';
+        $isFieldTechnician = in_array($role, ['employee', 'technician'], true)
+            && in_array($account['department'] ?? '', $employeeDepartments, true);
+        $destination = $type === 'customer'
+            ? site_url('customer/dashboard')
+            : ($role === 'admin'
+                ? site_url('admin/dashboard')
+                : ($isFieldTechnician
+                    ? site_url('technician/dashboard')
+                    : match ($account['department'] ?? '') {
+                        'Management' => site_url('management/dashboard'),
+                        'IT' => site_url('it/dashboard'),
+                        'Sales & Marketing' => site_url('sales-marketing/dashboard'),
+                        'Engineering' => site_url('engineering/dashboard'),
+                        default => site_url('/'),
+                    }));
+        return redirect()->to($destination)->with('notice', 'Signed in successfully.');
     }
 
     public function logout()

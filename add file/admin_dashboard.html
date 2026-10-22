@@ -1,0 +1,1008 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sun Son Solar | Administrator Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="admin_dashboard.css">
+</head>
+
+<body data-role="admin">
+
+<div class="layout">
+
+    <!-- ======================================
+         SIDEBAR
+         ====================================== -->
+
+    <aside class="sidebar">
+
+        <a href="#" class="brand">
+            <img
+                src="sun son solar.png"
+                alt="Sun Son Solar Logo"
+                class="brand-logo"
+            >
+
+            <span class="brand-name">
+                Sun Son Solar
+            </span>
+        </a>
+
+        <small>Administrator Dashboard</small>
+
+        <nav class="nav" aria-label="Administrator navigation">
+            <a href="#users">User Management</a>
+            <a href="#schedule">Schedule Calendar</a>
+            <a href="#bookings">Booking Management</a>
+            <a href="#analytics">Reports &amp; Analytics</a>
+            <a href="#notifications">Notification Control</a>
+            <a href="#settings">Service Settings</a>
+            <a href="#publish">Send Announcements</a>
+            <a href="#announcements">Announcement History</a>
+            <a href="#issues">Technician Reports</a>
+        </nav>
+
+    </aside>
+
+
+    <!-- ======================================
+         MAIN CONTENT
+         ====================================== -->
+
+    <main class="main">
+
+        <header class="top">
+
+            <div>
+                <h1>Administrator Dashboard</h1>
+
+                <p>
+                    Sun Son Solar · System management and oversight
+                </p>
+            </div>
+
+            <span class="pill">
+                Administrator
+            </span>
+
+        </header>
+
+        <p
+            id="status"
+            class="status"
+            aria-live="polite"
+        ></p>
+
+
+        <!-- ==================================
+             DASHBOARD STATISTICS
+             ================================== -->
+
+        <div id="stats" class="stats">
+
+            <div class="stat">
+                <strong>3</strong>
+                <span>Active Employees</span>
+            </div>
+
+            <div class="stat">
+                <strong>6</strong>
+                <span>Total Customer Bookings</span>
+            </div>
+
+            <div class="stat">
+                <strong>2</strong>
+                <span>Pending Requests</span>
+            </div>
+
+            <div class="stat">
+                <strong>₱78,500.00</strong>
+                <span>Completed Service Revenue</span>
+            </div>
+
+        </div>
+
+
+        <!-- ==================================
+             USER MANAGEMENT
+             ================================== -->
+
+        <section class="panel" id="users">
+
+            <h2>
+                User Management — Dispatcher &amp; Technician
+            </h2>
+
+            <form id="employee-form">
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="employee-name">
+                            Employee Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="employee-name"
+                            name="name"
+                            placeholder="Enter employee name"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="employee-email">
+                            Employee Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="employee-email"
+                            name="email"
+                            placeholder="Enter employee email"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="employee-role">
+                        Employee Role
+                    </label>
+
+                    <select id="employee-role" name="role">
+                        <option value="Dispatcher">
+                            Dispatcher
+                        </option>
+
+                        <option value="Technician">
+                            Technician
+                        </option>
+                    </select>
+
+                </div>
+
+                <button type="submit" class="btn">
+                    Add Employee
+                </button>
+
+            </form>
+
+            <h3>Employee Accounts</h3>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="employee-table">
+
+                        <tr>
+                            <td>EMP-1</td>
+                            <td>Juan Dela Cruz</td>
+                            <td>Dispatcher</td>
+                            <td>juan@example.com</td>
+                            <td><span class="tag">Active</span></td>
+
+                            <td>
+                                <div class="actions">
+                                    <button class="btn secondary" type="button">View</button>
+                                    <button class="btn secondary" type="button">Edit</button>
+                                    <button class="btn danger" type="button">Deactivate</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>EMP-2</td>
+                            <td>Mark Santos</td>
+                            <td>Technician</td>
+                            <td>mark@example.com</td>
+                            <td><span class="tag">Active</span></td>
+
+                            <td>
+                                <div class="actions">
+                                    <button class="btn secondary" type="button">View</button>
+                                    <button class="btn secondary" type="button">Edit</button>
+                                    <button class="btn danger" type="button">Deactivate</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>EMP-3</td>
+                            <td>Carlo Reyes</td>
+                            <td>Technician</td>
+                            <td>carlo@example.com</td>
+                            <td><span class="tag">Active</span></td>
+
+                            <td>
+                                <div class="actions">
+                                    <button class="btn secondary" type="button">View</button>
+                                    <button class="btn secondary" type="button">Edit</button>
+                                    <button class="btn danger" type="button">Deactivate</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>EMP-4</td>
+                            <td>Ana Garcia</td>
+                            <td>Dispatcher</td>
+                            <td>ana@example.com</td>
+                            <td><span class="tag">Inactive</span></td>
+
+                            <td>
+                                <div class="actions">
+                                    <button class="btn secondary" type="button">View</button>
+                                    <button class="btn secondary" type="button">Edit</button>
+                                    <button class="btn secondary" type="button">Activate</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             SCHEDULE CALENDAR
+             ================================== -->
+
+        <section class="panel" id="schedule">
+
+            <h2>All Customer Bookings — Calendar</h2>
+
+            <div class="cal-head">
+
+                <button
+                    type="button"
+                    class="btn secondary"
+                    id="prev-month"
+                >
+                    ← Previous
+                </button>
+
+                <h3 id="month-label">
+                    October 2026
+                </h3>
+
+                <button
+                    type="button"
+                    class="btn secondary"
+                    id="next-month"
+                >
+                    Next →
+                </button>
+
+            </div>
+
+            <div id="calendar" class="calendar">
+
+                <div class="day"><b>Sun</b></div>
+                <div class="day"><b>Mon</b></div>
+                <div class="day"><b>Tue</b></div>
+                <div class="day"><b>Wed</b></div>
+                <div class="day"><b>Thu</b></div>
+                <div class="day"><b>Fri</b></div>
+                <div class="day"><b>Sat</b></div>
+
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+
+                <div class="day"><b>1</b></div>
+                <div class="day"><b>2</b></div>
+                <div class="day"><b>3</b></div>
+                <div class="day"><b>4</b></div>
+                <div class="day"><b>5</b></div>
+                <div class="day"><b>6</b></div>
+                <div class="day"><b>7</b></div>
+                <div class="day"><b>8</b></div>
+                <div class="day"><b>9</b></div>
+                <div class="day"><b>10</b></div>
+                <div class="day"><b>11</b></div>
+                <div class="day"><b>12</b></div>
+                <div class="day"><b>13</b></div>
+                <div class="day"><b>14</b></div>
+                <div class="day"><b>15</b></div>
+                <div class="day"><b>16</b></div>
+                <div class="day"><b>17</b></div>
+
+                <div class="day">
+                    <b>18</b>
+                    <span class="event">08:00 Pedro Garcia<br>Solar Installation</span>
+                </div>
+
+                <div class="day">
+                    <b>19</b>
+                    <span class="event">11:00 Ramon Lopez<br>Solar Panel Inspection</span>
+                </div>
+
+                <div class="day">
+                    <b>20</b>
+                    <span class="event">13:00 Angela Cruz<br>Solar Consultation</span>
+                </div>
+
+                <div class="day"><b>21</b></div>
+                <div class="day"><b>22</b></div>
+                <div class="day"><b>23</b></div>
+                <div class="day"><b>24</b></div>
+
+                <div class="day">
+                    <b>25</b>
+                    <span class="event">09:00 Maria Santos<br>Solar Installation</span>
+                </div>
+
+                <div class="day"><b>26</b></div>
+
+                <div class="day">
+                    <b>27</b>
+                    <span class="event">10:00 John Reyes<br>Solar Maintenance</span>
+                </div>
+
+                <div class="day"><b>28</b></div>
+
+                <div class="day">
+                    <b>29</b>
+                    <span class="event">14:00 Liza Mendoza<br>Solar Maintenance</span>
+                </div>
+
+                <div class="day"><b>30</b></div>
+                <div class="day"><b>31</b></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             BOOKING MANAGEMENT
+             ================================== -->
+
+        <section class="panel" id="bookings">
+
+            <h2>
+                Booking Approvals, Assignments &amp; Rescheduling
+            </h2>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Booking</th>
+                            <th>Customer</th>
+                            <th>Service</th>
+                            <th>Date &amp; Time</th>
+                            <th>Status</th>
+                            <th>Technician</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="booking-table">
+
+                        <tr>
+                            <td>BK-101</td>
+                            <td>Maria Santos</td>
+                            <td>Solar Installation</td>
+                            <td>2026-10-25 09:00</td>
+                            <td><span class="tag">Pending</span></td>
+                            <td>Unassigned</td>
+
+                            <td>
+                                <div class="actions">
+                                    <button class="btn" type="button">Approve</button>
+                                    <button class="btn danger" type="button">Decline</button>
+                                    <button class="btn secondary" type="button">Reschedule</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>BK-102</td>
+                            <td>John Reyes</td>
+                            <td>Solar Maintenance</td>
+                            <td>2026-10-27 10:00</td>
+                            <td><span class="tag">Approved</span></td>
+                            <td>Mark Santos</td>
+
+                            <td>
+                                <div class="actions">
+                                    <button class="btn" type="button">Complete</button>
+                                    <button class="btn secondary" type="button">Reschedule</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>BK-103</td>
+                            <td>Angela Cruz</td>
+                            <td>Solar Consultation</td>
+                            <td>2026-10-20 13:00</td>
+                            <td><span class="tag">Completed</span></td>
+                            <td>Carlo Reyes</td>
+                            <td>Completed</td>
+                        </tr>
+
+                        <tr>
+                            <td>BK-104</td>
+                            <td>Pedro Garcia</td>
+                            <td>Solar Installation</td>
+                            <td>2026-10-18 08:00</td>
+                            <td><span class="tag">Completed</span></td>
+                            <td>Mark Santos</td>
+                            <td>Completed</td>
+                        </tr>
+
+                        <tr>
+                            <td>BK-105</td>
+                            <td>Liza Mendoza</td>
+                            <td>Solar Maintenance</td>
+                            <td>2026-10-29 14:00</td>
+                            <td><span class="tag">Pending</span></td>
+                            <td>Unassigned</td>
+
+                            <td>
+                                <div class="actions">
+                                    <button class="btn" type="button">Approve</button>
+                                    <button class="btn danger" type="button">Decline</button>
+                                    <button class="btn secondary" type="button">Reschedule</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>BK-106</td>
+                            <td>Ramon Lopez</td>
+                            <td>Solar Panel Inspection</td>
+                            <td>2026-10-19 11:00</td>
+                            <td><span class="tag">Completed</span></td>
+                            <td>Carlo Reyes</td>
+                            <td>Completed</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             REPORTS AND ANALYTICS
+             ================================== -->
+
+        <section class="panel" id="analytics">
+
+            <h2>Reports &amp; Analytics</h2>
+
+            <div id="analytics-summary">
+
+                <div class="grid-cards">
+
+                    <div class="notice">
+                        <strong>Unique Customers</strong>
+                        <h3>6</h3>
+                    </div>
+
+                    <div class="notice">
+                        <strong>Completed Services</strong>
+                        <h3>3</h3>
+                    </div>
+
+                    <div class="notice">
+                        <strong>Total Revenue</strong>
+                        <h3>₱78,500.00</h3>
+                    </div>
+
+                    <div class="notice">
+                        <strong>Service Categories</strong>
+                        <h3>4</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <h3>Service Usage Chart</h3>
+
+            <div id="service-chart" class="chart">
+
+                <div class="chart-col">
+                    <div class="chart-bar" style="height:50%"></div>
+                    <span class="chart-value">1</span>
+                    <span class="chart-label">Consultation</span>
+                </div>
+
+                <div class="chart-col">
+                    <div class="chart-bar" style="height:100%"></div>
+                    <span class="chart-value">2</span>
+                    <span class="chart-label">Installation</span>
+                </div>
+
+                <div class="chart-col">
+                    <div class="chart-bar" style="height:100%"></div>
+                    <span class="chart-value">2</span>
+                    <span class="chart-label">Maintenance</span>
+                </div>
+
+                <div class="chart-col">
+                    <div class="chart-bar" style="height:50%"></div>
+                    <span class="chart-value">1</span>
+                    <span class="chart-label">Inspection</span>
+                </div>
+
+            </div>
+
+            <h3>Revenue by Service</h3>
+
+            <div id="revenue-chart" class="chart">
+
+                <div class="chart-col">
+                    <div class="chart-bar" style="height:2%"></div>
+                    <span class="chart-value">₱1,500</span>
+                    <span class="chart-label">Consultation</span>
+                </div>
+
+                <div class="chart-col">
+                    <div class="chart-bar" style="height:100%"></div>
+                    <span class="chart-value">₱75,000</span>
+                    <span class="chart-label">Installation</span>
+                </div>
+
+                <div class="chart-col">
+                    <div class="chart-bar" style="height:3%"></div>
+                    <span class="chart-value">₱0</span>
+                    <span class="chart-label">Maintenance</span>
+                </div>
+
+                <div class="chart-col">
+                    <div class="chart-bar" style="height:3%"></div>
+                    <span class="chart-value">₱2,000</span>
+                    <span class="chart-label">Inspection</span>
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="btn"
+                id="export-report"
+            >
+                Generate / Download CSV Report
+            </button>
+
+        </section>
+
+
+        <!-- ==================================
+             NOTIFICATION CONTROL
+             ================================== -->
+
+        <section class="panel" id="notifications">
+
+            <h2>Customer Notification Control Panel</h2>
+
+            <div id="notification-controls">
+
+                <div class="notice notice-row">
+                    <strong>Service Reminders</strong>
+
+                    <label>
+                        <input type="checkbox" checked>
+                        Enabled
+                    </label>
+                </div>
+
+                <div class="notice notice-row">
+                    <strong>Promotional Offers</strong>
+
+                    <label>
+                        <input type="checkbox">
+                        Enabled
+                    </label>
+                </div>
+
+                <div class="notice notice-row">
+                    <strong>System Updates</strong>
+
+                    <label>
+                        <input type="checkbox" checked>
+                        Enabled
+                    </label>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             SERVICE SETTINGS
+             ================================== -->
+
+        <section class="panel" id="settings">
+
+            <h2>Service Categories, Pricing &amp; Availability</h2>
+
+            <form id="service-form">
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="service-name">
+                            New Service Category
+                        </label>
+
+                        <input
+                            type="text"
+                            id="service-name"
+                            name="name"
+                            placeholder="Enter service category"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="service-price">
+                            Price (PHP)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="service-price"
+                            name="price"
+                            min="0"
+                            step="0.01"
+                            placeholder="Enter service price"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn">
+                    Add Service
+                </button>
+
+            </form>
+
+            <h3>Current Services</h3>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Availability</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="service-table">
+
+                        <tr>
+                            <td>Solar Consultation</td>
+                            <td>₱1,500.00</td>
+                            <td><span class="tag">Available</span></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn secondary" type="button">Edit</button>
+                                    <button class="btn secondary" type="button">Disable</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Solar Installation</td>
+                            <td>₱75,000.00</td>
+                            <td><span class="tag">Available</span></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn secondary" type="button">Edit</button>
+                                    <button class="btn secondary" type="button">Disable</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Solar Maintenance</td>
+                            <td>₱3,500.00</td>
+                            <td><span class="tag">Available</span></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn secondary" type="button">Edit</button>
+                                    <button class="btn secondary" type="button">Disable</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Solar Panel Inspection</td>
+                            <td>₱2,000.00</td>
+                            <td><span class="tag">Unavailable</span></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="btn secondary" type="button">Edit</button>
+                                    <button class="btn secondary" type="button">Enable</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             PUBLISH ANNOUNCEMENTS
+             ================================== -->
+
+        <section class="panel" id="publish">
+
+            <h2>Publish Employee Announcements</h2>
+
+            <form id="announcement-form">
+
+                <div class="field">
+
+                    <label for="announcement-title">
+                        Announcement Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="announcement-title"
+                        name="title"
+                        placeholder="Enter announcement title"
+                        required
+                    >
+
+                </div>
+
+                <div class="field">
+
+                    <label for="announcement-audience">
+                        Recipients
+                    </label>
+
+                    <select
+                        id="announcement-audience"
+                        name="audience"
+                    >
+                        <option value="All">All Employees</option>
+                        <option value="Dispatcher">Dispatcher</option>
+                        <option value="Technician">Technician</option>
+                    </select>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="announcement-body">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="announcement-body"
+                        name="body"
+                        rows="5"
+                        placeholder="Enter announcement message"
+                        required
+                    ></textarea>
+
+                </div>
+
+                <button type="submit" class="btn">
+                    Publish Announcement
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ==================================
+             ANNOUNCEMENT HISTORY
+             ================================== -->
+
+        <section class="panel" id="announcements">
+
+            <h2>Announcements &amp; Messages</h2>
+
+            <div id="announcement-list">
+
+                <div class="notice">
+
+                    <strong>Safety Guidelines</strong>
+
+                    <p>
+                        Always wear proper safety equipment during
+                        solar installation and maintenance.
+                    </p>
+
+                    <small>
+                        Recipients: All Employees | 2026-10-21
+                    </small>
+
+                </div>
+
+                <div class="notice">
+
+                    <strong>Technician Schedule Reminder</strong>
+
+                    <p>
+                        Please review your assigned jobs before
+                        visiting customer locations.
+                    </p>
+
+                    <small>
+                        Recipients: Technician | 2026-10-22
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             TECHNICIAN ISSUE REPORTS
+             ================================== -->
+
+        <section class="panel" id="issues">
+
+            <h2>Technician Issue Reports</h2>
+
+            <p>
+                New Reports:
+                <strong id="issue-count">1</strong>
+            </p>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Technician</th>
+                            <th>Job</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Submitted</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="issue-table">
+
+                        <tr>
+                            <td>REP-1</td>
+                            <td>Mark Santos</td>
+                            <td>BK-102</td>
+                            <td>Equipment Issue</td>
+                            <td>Inverter requires further inspection.</td>
+                            <td>2026-10-22</td>
+                            <td><span class="tag">Pending</span></td>
+                            <td>
+                                <button class="btn secondary" type="button">
+                                    Update Status
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>REP-2</td>
+                            <td>Carlo Reyes</td>
+                            <td>BK-103</td>
+                            <td>Customer Concern</td>
+                            <td>
+                                Customer requested additional
+                                maintenance information.
+                            </td>
+                            <td>2026-10-21</td>
+                            <td><span class="tag">Reviewing</span></td>
+                            <td>
+                                <button class="btn secondary" type="button">
+                                    Update Status
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>REP-3</td>
+                            <td>Mark Santos</td>
+                            <td>BK-104</td>
+                            <td>Equipment Issue</td>
+                            <td>
+                                Loose connection was identified
+                                and corrected.
+                            </td>
+                            <td>2026-10-18</td>
+                            <td><span class="tag">Resolved</span></td>
+                            <td>
+                                <button class="btn secondary" type="button">
+                                    Update Status
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             FOOTER
+             ================================== -->
+
+        <footer class="footer-section">
+
+            <h3>Sun Son Solar</h3>
+
+            <p>
+                Clean energy service management ·
+                © 2026 Sun Son Solar
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

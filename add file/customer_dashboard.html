@@ -1,0 +1,546 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sun Son Solar | Customer Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Customer Dashboard CSS -->
+    <link rel="stylesheet" href="customer_dashboard.css">
+</head>
+
+<body data-role="customer">
+
+    <div class="layout">
+
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
+        <aside class="sidebar">
+
+            <!-- Sun Son Solar Logo -->
+            <a class="brand" href="#overview">
+                <img
+                    src="sun son solar.png"
+                    alt="Sun Son Solar Logo"
+                    class="brand-logo"
+                >
+                <span class="brand-name">Sun Son Solar</span>
+            </a>
+
+            <small>Customer Dashboard</small>
+
+            <!-- Navigation -->
+            <nav class="nav">
+                <a href="#overview">Dashboard Overview</a>
+                <a href="#services">Scheduled Services</a>
+                <a href="#notifications">Notifications</a>
+                <a href="#history">Service &amp; Payment History</a>
+                <a href="#profile">My Profile</a>
+                <a href="#support">Support &amp; Help</a>
+            </nav>
+
+        </aside>
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+        <main class="main">
+
+            <!-- Dashboard Header -->
+            <header class="top" id="overview">
+
+                <div>
+                    <h1>Customer Dashboard</h1>
+                    <p>Manage your solar services and account</p>
+                </div>
+
+                <span class="pill">Customer</span>
+
+            </header>
+
+            <!-- Status Message -->
+            <p
+                id="status"
+                class="status"
+                aria-live="polite"
+            ></p>
+
+            <!-- Dashboard Statistics -->
+            <div
+                id="customer-stats"
+                class="stats"
+            ></div>
+
+
+            <!-- =====================================
+                 SCHEDULED SERVICES
+            ====================================== -->
+            <section class="panel" id="services">
+
+                <h2>Scheduled Services</h2>
+
+                <h3>Request a Service</h3>
+
+                <form id="booking-form">
+
+                    <div class="form-grid">
+
+                        <!-- Service Type -->
+                        <div class="field">
+                            <label for="service-type">
+                                Service type
+                            </label>
+
+                            <select
+                                id="service-type"
+                                name="service"
+                                required
+                            ></select>
+                        </div>
+
+                        <!-- Preferred Date -->
+                        <div class="field">
+                            <label for="service-date">
+                                Preferred date
+                            </label>
+
+                            <input
+                                id="service-date"
+                                name="date"
+                                type="date"
+                                required
+                            >
+                        </div>
+
+                        <!-- Preferred Time -->
+                        <div class="field">
+                            <label for="service-time">
+                                Preferred time
+                            </label>
+
+                            <input
+                                id="service-time"
+                                name="time"
+                                type="time"
+                                required
+                            >
+                        </div>
+
+                        <!-- Service Address -->
+                        <div class="field">
+                            <label for="service-address">
+                                Service address
+                            </label>
+
+                            <input
+                                id="service-address"
+                                name="address"
+                                maxlength="180"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="btn"
+                        type="submit"
+                    >
+                        Request Booking
+                    </button>
+
+                </form>
+
+                <!-- My Bookings -->
+                <h3>My Bookings</h3>
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Booking</th>
+                                <th>Service</th>
+                                <th>Date &amp; Time</th>
+                                <th>Address</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="customer-bookings"></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 NOTIFICATIONS
+            ====================================== -->
+            <section class="panel" id="notifications">
+
+                <h2>Notifications</h2>
+
+                <div id="customer-notifications"></div>
+
+            </section>
+
+
+            <!-- =====================================
+                 SERVICE AND PAYMENT HISTORY
+            ====================================== -->
+            <section class="panel" id="history">
+
+                <h2>Service &amp; Expense History</h2>
+
+                <!-- Expense Summary -->
+                <div id="expense-summary"></div>
+
+                <!-- History Table -->
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Receipt / Booking</th>
+                                <th>Completed Service</th>
+                                <th>Date</th>
+                                <th>Payment</th>
+                                <th>Expense</th>
+                                <th>Receipt</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="history-table"></tbody>
+
+                    </table>
+
+                </div>
+
+                <!-- Usage Chart -->
+                <h3>Usage &amp; Expenses</h3>
+
+                <div
+                    id="usage-chart"
+                    class="chart"
+                ></div>
+
+            </section>
+
+
+            <!-- =====================================
+                 MY PROFILE
+            ====================================== -->
+            <section class="panel" id="profile">
+
+                <h2>My Profile</h2>
+
+                <!-- Profile Form -->
+                <form id="profile-form">
+
+                    <div class="form-grid">
+
+                        <!-- Full Name -->
+                        <div class="field">
+
+                            <label for="profile-name">
+                                Full name
+                            </label>
+
+                            <input
+                                id="profile-name"
+                                name="name"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="field">
+
+                            <label for="profile-email">
+                                Email address
+                            </label>
+
+                            <input
+                                id="profile-email"
+                                name="email"
+                                type="email"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- Contact Number -->
+                        <div class="field">
+
+                            <label for="profile-phone">
+                                Contact number
+                            </label>
+
+                            <input
+                                id="profile-phone"
+                                name="phone"
+                                type="tel"
+                            >
+
+                        </div>
+
+                        <!-- Address -->
+                        <div class="field">
+
+                            <label for="profile-address">
+                                Address
+                            </label>
+
+                            <input
+                                id="profile-address"
+                                name="address"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- Notification Preference -->
+                        <div class="field">
+
+                            <label for="profile-preference">
+                                Notification preference
+                            </label>
+
+                            <select
+                                id="profile-preference"
+                                name="preference"
+                            >
+
+                                <option value="All">
+                                    All notifications
+                                </option>
+
+                                <option value="Essential">
+                                    Reminders and system updates only
+                                </option>
+
+                                <option value="None">
+                                    No optional notifications
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="btn"
+                        type="submit"
+                    >
+                        Save Profile
+                    </button>
+
+                </form>
+
+
+                <!-- Change Password -->
+                <h3>Change Password</h3>
+
+                <form id="password-form">
+
+                    <div class="form-grid">
+
+                        <!-- Current Password -->
+                        <div class="field">
+
+                            <label for="old-password">
+                                Current password
+                            </label>
+
+                            <input
+                                id="old-password"
+                                name="old"
+                                type="password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- New Password -->
+                        <div class="field">
+
+                            <label for="new-password">
+                                New password
+                            </label>
+
+                            <input
+                                id="new-password"
+                                name="password"
+                                type="password"
+                                minlength="8"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="btn"
+                        type="submit"
+                    >
+                        Update Password
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- =====================================
+                 SUPPORT AND HELP
+            ====================================== -->
+            <section class="panel" id="support">
+
+                <h2>Support &amp; Help</h2>
+
+                <div class="two">
+
+                    <!-- Support Tickets -->
+                    <div>
+
+                        <h3>Support Tickets</h3>
+
+                        <form id="ticket-form">
+
+                            <!-- Subject -->
+                            <div class="field">
+
+                                <label for="ticket-subject">
+                                    Subject
+                                </label>
+
+                                <input
+                                    id="ticket-subject"
+                                    name="subject"
+                                    required
+                                >
+
+                            </div>
+
+                            <!-- Concern -->
+                            <div class="field">
+
+                                <label for="ticket-message">
+                                    Describe your concern
+                                </label>
+
+                                <textarea
+                                    id="ticket-message"
+                                    name="message"
+                                    required
+                                ></textarea>
+
+                            </div>
+
+                            <button
+                                class="btn"
+                                type="submit"
+                            >
+                                Submit Ticket
+                            </button>
+
+                        </form>
+
+                        <!-- Ticket List -->
+                        <div id="ticket-list"></div>
+
+                    </div>
+
+
+                    <!-- Support Chat -->
+                    <div>
+
+                        <h3>Support Chat</h3>
+
+                        <!-- Chat Messages -->
+                        <div
+                            id="chat-log"
+                            class="chat-log"
+                            aria-live="polite"
+                        ></div>
+
+                        <!-- Chat Form -->
+                        <form id="chat-form">
+
+                            <div class="field">
+
+                                <label for="chat-message">
+                                    Message
+                                </label>
+
+                                <input
+                                    id="chat-message"
+                                    name="message"
+                                    required
+                                >
+
+                            </div>
+
+                            <button
+                                class="btn"
+                                type="submit"
+                            >
+                                Send Message
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 FOOTER
+            ====================================== -->
+            <footer class="footer-section">
+
+                <h3>Sun Son Solar</h3>
+
+                <p>
+                    Clean energy service management ·
+                    © 2026 Sun Son Solar
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- Customer Dashboard JavaScript -->
+    <script src="js/customer.js"></script>
+
+</body>
+</html>
