@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sun Son Solar | Technician Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="technician_dashboard.css">
+</head>
+
+<body data-role="technician">
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <a class="brand" href="#jobs">
+                <img
+                    src="sun son solar.png"
+                    alt="Sun Son Solar Logo"
+                    class="brand-logo"
+                >
+
+                <span class="brand-name">
+                    Sun Son Solar
+                </span>
+            </a>
+
+            <small>Technician Dashboard</small>
+
+            <nav class="nav">
+                <a href="#jobs">My Assigned Jobs</a>
+                <a href="#checkins">GPS Check-In</a>
+                <a href="#announcements">Announcements</a>
+                <a href="#issues">Issue Reports</a>
+            </nav>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- HEADER -->
+            <header class="top">
+
+                <div>
+                    <h1>Technician Dashboard</h1>
+                    <p>Sun Son Solar · Field services and job updates</p>
+                </div>
+
+                <span class="pill">Technician</span>
+
+            </header>
+
+            <p
+                id="status"
+                class="status"
+                aria-live="polite"
+            ></p>
+
+            <!-- ASSIGNED JOBS -->
+            <section class="panel" id="jobs">
+
+                <h2>My Assigned Jobs Only</h2>
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Job</th>
+                                <th>Customer</th>
+                                <th>Service Address</th>
+                                <th>Service</th>
+                                <th>Schedule</th>
+                                <th>Status</th>
+                                <th>Check-in</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="assigned-jobs"></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- GPS CHECK-IN HISTORY -->
+            <section class="panel" id="checkins">
+
+                <h2>GPS Check-In History</h2>
+
+                <div id="my-checkins"></div>
+
+            </section>
+
+            <!-- ANNOUNCEMENTS -->
+            <section class="panel" id="announcements">
+
+                <h2>Announcements &amp; Messages</h2>
+
+                <div id="announcement-list"></div>
+
+            </section>
+
+            <!-- ISSUE REPORTS -->
+            <section class="panel" id="issues">
+
+                <h2>Submit Equipment / Customer Issue Report</h2>
+
+                <form id="issue-form">
+
+                    <div class="form-grid">
+
+                        <!-- ASSIGNED JOB -->
+                        <div class="field">
+
+                            <label for="technician-jobs-select">
+                                Assigned Job
+                            </label>
+
+                            <select
+                                id="technician-jobs-select"
+                                name="booking"
+                                required
+                            ></select>
+
+                        </div>
+
+                        <!-- ISSUE TYPE -->
+                        <div class="field">
+
+                            <label for="issue-type">
+                                Issue Type
+                            </label>
+
+                            <select
+                                id="issue-type"
+                                name="type"
+                            >
+                                <option>Equipment Issue</option>
+                                <option>Customer Concern</option>
+                                <option>Safety Concern</option>
+                                <option>Other</option>
+                            </select>
+
+                        </div>
+
+                        <!-- DESCRIPTION -->
+                        <div class="field">
+
+                            <label for="issue-description">
+                                Description
+                            </label>
+
+                            <textarea
+                                id="issue-description"
+                                name="description"
+                                required
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="btn"
+                        type="submit"
+                    >
+                        Submit Report to Admin
+                    </button>
+
+                </form>
+
+                <!-- SUBMITTED REPORTS -->
+                <h3>My Submitted Reports</h3>
+
+                <div id="my-reports"></div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="footer-section">
+
+                <h3>Sun Son Solar</h3>
+
+                <p>
+                    Clean energy service management ·
+                    © 2026 Sun Son Solar
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

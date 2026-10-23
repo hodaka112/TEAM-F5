@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration - Sun Son Solar</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="registration_employee.css">
+</head>
+<body>
+
+    <main class="container">
+        <section class="register-card">
+
+            <!-- Company Logo -->
+            <div class="brand-header">
+                <a href="homepage.html">
+                    <img src="Sun Son Solar.png"
+                         alt="Sun Son Solar Logo"
+                         class="brand-logo">
+                </a>
+            </div>
+
+            <h2>Employee Registration</h2>
+            <p class="subtitle">
+                Create your Sun Son Solar employee account.
+            </p>
+
+            <form action="employee-register.php"
+                  method="POST"
+                  id="employeeForm">
+
+                <!-- Employee Information -->
+                <h3 class="form-title">Employee Information</h3>
+
+                <div class="form-group">
+                    <label for="employeeId">Employee ID</label>
+                    <input type="text"
+                           id="employeeId"
+                           name="employee_id"
+                           placeholder="Enter your Employee ID"
+                           required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text"
+                               id="firstName"
+                               name="first_name"
+                               placeholder="First name"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text"
+                               id="lastName"
+                               name="last_name"
+                               placeholder="Last name"
+                               required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           placeholder="Enter your email"
+                           autocomplete="email"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Contact Number</label>
+                    <input type="tel"
+                           id="phone"
+                           name="phone"
+                           placeholder="09XXXXXXXXX"
+                           pattern="09[0-9]{9}"
+                           title="Enter an 11-digit Philippine mobile number starting with 09"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Employee Position</label>
+                    <select id="position" name="position" required>
+                        <option value="">Select Position</option>
+                        <option value="technician">Technician</option>
+                        <option value="dispatcher">Dispatcher</option>
+                    </select>
+                </div>
+
+                <!-- Account Information -->
+                <h3 class="form-title">Account Information</h3>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text"
+                           id="username"
+                           name="username"
+                           placeholder="Create username"
+                           autocomplete="username"
+                           minlength="4"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           placeholder="Create password"
+                           autocomplete="new-password"
+                           minlength="8"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+                    <input type="password"
+                           id="confirmPassword"
+                           name="confirm_password"
+                           placeholder="Confirm password"
+                           autocomplete="new-password"
+                           minlength="8"
+                           required>
+                </div>
+
+                <div class="terms">
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to the Terms and Conditions
+                        and Privacy Policy.
+                    </label>
+                </div>
+
+                <button type="submit" class="register-btn">
+                    Register Employee
+                </button>
+
+                <p id="message" role="status" aria-live="polite"></p>
+
+            </form>
+
+            <p class="login-link">
+                Already have an account?
+                <a href="login.html">Log In</a>
+            </p>
+
+            <a href="homepage.html" class="back-link">
+                ← Back to Home
+            </a>
+
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById("employeeForm");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        function validatePasswords() {
+            if (confirmPassword.value &&
+                password.value !== confirmPassword.value) {
+                confirmPassword.setCustomValidity(
+                    "Passwords do not match."
+                );
+            } else {
+                confirmPassword.setCustomValidity("");
+            }
+        }
+
+        password.addEventListener("input", validatePasswords);
+        confirmPassword.addEventListener("input", validatePasswords);
+
+        form.addEventListener("submit", function(event) {
+            validatePasswords();
+
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                form.reportValidity();
+            }
+        });
+    </script>
+
+</body>
+</html>
