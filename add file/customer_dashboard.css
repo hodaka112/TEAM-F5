@@ -1,0 +1,999 @@
+# CODEX MASTER INSTRUCTION: READ ALL FILES COMPLETELY BEFORE IMPLEMENTING ANYTHING
+
+## CRITICAL: READ EVERYTHING CAREFULLY — NO SKIPPING, NO GUESSING, NO INCOMPLETE INTEGRATION
+
+You must carefully read and understand EVERY file I provide, from the first line to the last line, before making any changes to my existing project.
+
+Previous attempts have resulted in incomplete reading and incomplete integration. Do not repeat that mistake.
+
+**Do not rely on file previews, truncated output, summaries, selected snippets, or assumptions. You must inspect the complete contents of every relevant file.**
+
+Do not start implementing until you have completed the inspection and understand how the provided files are supposed to work with my existing system.
+
+## 1. Read All 8 Provided Files Completely
+
+Read every line of these files, including HTML markup, CSS rules, JavaScript, inline scripts, forms, IDs, classes, links, event handlers, and references to external files.
+
+### Admin Dashboard
+- `admin_dashboard.html`
+- `admin_dashboard.css`
+
+### Customer Dashboard
+- `customer_dashboard.html`
+- `customer_dashboard.css`
+
+### Employee Registration
+- `registration_employees.html`
+- `registration_employee.css`
+
+### Technician Dashboard
+- `technician_dashboard.html`
+- `technician_dashboard.css`
+
+For each file:
+
+1. Read the complete file, not just the beginning or a preview.
+2. Verify that the contents extend through the actual end of the file.
+3. If the file is too long for one read operation, read it in sequential sections until every line has been inspected.
+4. Check that no sections, functions, styles, or scripts were skipped.
+5. Record the total line count and confirm that the entire file has been reviewed.
+6. Follow every reference to additional JavaScript, images, stylesheets, PHP files, APIs, and other resources.
+7. Inspect the complete contents of those referenced files when they are relevant to integration.
+8. If any file cannot be read completely, explicitly report which file and which portion is missing. Do not pretend the inspection is complete.
+
+**A file is not considered reviewed until its entire contents have been inspected and its dependencies understood.**
+
+## 2. Inspect My Existing Project Completely
+
+After reading all eight provided files, inspect my actual project structure and the relevant existing source files.
+
+My project uses an existing PHP/Laravel-style application, and I have existing routes, authentication, controllers, models, views, and database records.
+
+Inspect the relevant parts of:
+
+- Existing login and logout implementation.
+- Authentication and session handling.
+- User and employee tables.
+- Database models and relationships.
+- Routes and route protection.
+- Controllers and backend logic.
+- Existing PHP views.
+- Existing dashboard pages.
+- Existing customer and technician functionality.
+- Employee registration and account creation.
+- Existing JavaScript files and API connections.
+- Existing CSS and image assets.
+- Dependencies and configuration.
+- Existing authorization and user roles.
+
+Read the complete contents of every relevant file, not just a few selected lines.
+
+Do not assume the application structure or invent routes, functions, database columns, or APIs without checking the actual project.
+
+## 3. Build a Complete File and Dependency Map
+
+Before implementing anything, identify how the provided files depend on one another and on my existing system.
+
+For each of the four pages, document:
+
+- Its corresponding CSS file.
+- All JavaScript files it loads.
+- All images, fonts, and other assets it references.
+- Every form and its submission destination.
+- Every navigation link and route.
+- Every element that is populated dynamically.
+- Every event listener and interactive control.
+- Every required database operation.
+- Every backend controller, model, endpoint, or service it needs.
+- Any missing file, function, route, or dependency.
+
+Check the exact spelling, capitalization, and directory paths of every referenced file.
+
+Do not assume that a button works simply because it is visible. Trace its actual behavior through the frontend and backend.
+
+## 4. Check for Incomplete or Nonfunctional Features
+
+Inspect the complete files to identify:
+
+- Hardcoded demonstration data.
+- Buttons that have no implemented action.
+- Forms that submit to missing endpoints.
+- Links that point to nonexistent pages.
+- JavaScript functions that are missing or incomplete.
+- HTML elements that are never populated.
+- CSS files that are not loaded correctly.
+- Images that cannot be found.
+- API requests that do not match existing backend routes.
+- Missing validation and error handling.
+- Features that appear functional but are not connected to the database.
+- Duplicate or conflicting implementations.
+
+For example, inspect the existing dashboard statistics and employee tables to determine whether they display real database records or hardcoded sample data.
+
+Do not automatically replace or delete anything during this inspection. First establish what is actually wrong and what changes are necessary.
+
+## 5. Integrate All Four Pages With My Existing System
+
+The four provided pages must integrate with my existing application rather than operate as disconnected standalone HTML pages.
+
+### Admin Dashboard
+
+- Connect to the existing administrator authentication and authorization system.
+- Display real employee information and other relevant existing application data.
+- Connect employee management, booking management, reports, and other features only where supported by the existing application.
+- Ensure administrator-only actions are protected on the backend.
+
+### Customer Dashboard
+
+- Connect to the authenticated customer's existing account.
+- Display only the appropriate customer's own bookings, profile, notifications, service history, and related records.
+- Connect service requests and profile updates to existing backend functionality.
+- Prevent customers from accessing another customer's private information.
+
+### Employee Registration
+
+- Connect the form to the existing employee registration and account-creation process.
+- Validate input on both the frontend and backend.
+- Use secure password hashing and the existing authentication architecture.
+- Check whether employee registration is intentionally restricted before enabling public registration.
+- Do not create duplicate accounts or change existing employee records unnecessarily.
+
+### Technician Dashboard
+
+- Connect the dashboard to the existing technician account and assigned jobs.
+- Display only jobs and information the authenticated technician is authorized to access.
+- Connect issue reports, job status updates, GPS check-ins, and announcements only if the existing system supports them.
+- Validate and authorize all actions on the backend.
+
+Do not fabricate functionality or claim that a feature is connected until you verify the complete request-to-database flow.
+
+## 6. Configure Administrator Access for Kat and Sol
+
+Use the existing employee accounts:
+
+**Kat**
+- Email: `katherine@sunsonsolar.test`
+- Requested password: `kathPccnet`
+
+**Sol**
+- Email: `sol@sunsonsolar.test`
+- Requested password: `solPccnet`
+
+Requirements:
+
+1. Locate both existing accounts using their email addresses.
+2. Do not create duplicate accounts.
+3. Set the requested passwords only through the application's secure password-hashing mechanism and with the necessary authorization.
+4. Do not expose password hashes or store passwords in plain text.
+5. Grant both accounts administrator permissions using the existing authorization architecture.
+6. After either account successfully logs in, direct that user to the Admin Dashboard.
+7. Ensure both accounts can monitor authorized employee records and existing employee activity.
+8. Do not grant administrator privileges to other employees or customers.
+9. Protect administrator routes and actions on the backend.
+10. Verify the results instead of assuming the account changes succeeded.
+
+Do not modify passwords or account records until the required changes are approved. Never bypass authentication.
+
+## 7. Preserve My Existing Code
+
+**MY EXISTING CODE MUST NOT BE REWRITTEN, REPLACED, OR DELETED WITHOUT MY EXPLICIT APPROVAL.**
+
+- Preserve existing working functions and features.
+- Do not overwrite existing files when copying the new files.
+- Do not create duplicate routes, controllers, models, views, or dashboards.
+- Reuse existing functionality whenever appropriate.
+- Add new files when they provide a compatible solution.
+- Do not refactor unrelated code.
+- Do not reset the database or run destructive migrations.
+- Preserve existing customer, employee, technician, booking, and service-request records.
+
+If a change to an existing file is unavoidable:
+
+1. Identify the exact file and code involved.
+2. Explain why the change is necessary.
+3. Show the proposed modification and its impact.
+4. Wait for my explicit approval.
+5. Make only the approved modification.
+
+Do not interpret permission to integrate the new files as permission to rewrite my entire project.
+
+## 8. Review Redundant Code Across the Entire System
+
+Inspect the overall project for duplicate files, unnecessary CSS, unused functions, duplicate routes, redundant controllers, and obsolete dependencies.
+
+However, do not assume that two files are redundant simply because their names or contents look similar.
+
+Trace their references and determine which implementation is active.
+
+Prepare a list of proposed cleanup actions and explain the purpose and risks of each one.
+
+**Do not delete, rename, merge, or modify existing files as part of cleanup without my explicit approval.**
+
+## 9. Verification and Testing
+
+After completing the inspection and receiving approval for necessary changes:
+
+- Verify all eight provided files.
+- Confirm all CSS and JavaScript paths.
+- Check referenced images and assets.
+- Validate every relevant route and form destination.
+- Test frontend and backend integration.
+- Verify authentication and authorization.
+- Test the four dashboards with the appropriate account roles.
+- Check that displayed data comes from the correct database records.
+- Check for JavaScript errors, PHP errors, missing imports, and broken routes.
+- Run relevant existing tests and build checks.
+- Verify that existing functionality remains intact.
+- Confirm that no unapproved existing files were modified or deleted.
+
+Do not report tests as successful unless you actually ran them and verified their results.
+
+## 10. Required Inspection Report Before Implementation
+
+Before changing any code, provide a report containing:
+
+1. The complete list of all eight files reviewed.
+2. Confirmation that every line of each file was inspected.
+3. The line count of each file.
+4. The dependencies and external resources referenced by each page.
+5. Missing files, broken paths, incomplete functions, and nonfunctional controls.
+6. The existing routes, controllers, models, and views relevant to integration.
+7. Which features already work and which require implementation.
+8. Which existing files would need modification and why.
+9. Any potential duplicate or redundant files.
+10. The proposed implementation plan, including any database changes.
+
+If you cannot access the complete project or a referenced file, clearly identify what is missing and ask for the necessary file. Do not guess.
+
+## FINAL INSTRUCTION
+
+**READ EVERYTHING FIRST. UNDERSTAND EVERYTHING. MAP THE DEPENDENCIES. REPORT WHAT IS MISSING. THEN IMPLEMENT ONLY THE APPROVED CHANGES.**
+
+Do not skip lines because a file is long. Do not assume the contents of unread files. Do not invent missing functionality. Do not replace working code to save time.
+
+My goal is to have all four provided pages fully integrated with my existing application, connected to real data and existing authentication, while preserving my current code and preventing incomplete or broken implementations.
+/* ==========================================
+   SUN SON SOLAR - CUSTOMER DASHBOARD
+   ========================================== */
+
+/* ROOT VARIABLES */
+
+:root {
+    --orange: #f57c1f;
+    --deep: #b34700;
+    --gold: #ffc542;
+    --cream: #fff7e8;
+    --border: #f0dcbb;
+    --ink: #3a2a18;
+    --muted: #806b57;
+}
+
+/* GLOBAL STYLES */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Poppins, Arial, sans-serif;
+    color: var(--ink);
+
+    background-image:
+        linear-gradient(
+            rgba(99, 78, 40, 0.5),
+            rgba(99, 78, 40, 0.5)
+        ),
+        url("solarcell.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+a {
+    color: inherit;
+}
+
+/* ==========================================
+   MAIN LAYOUT
+   ========================================== */
+
+.layout {
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
+    min-height: 100vh;
+}
+
+/* ==========================================
+   SIDEBAR
+   ========================================== */
+
+.sidebar {
+    background: rgba(255, 255, 255, 0.97);
+    padding: 24px 16px;
+    border-right: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: auto;
+}
+
+/* COMPANY BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--deep);
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 1.3;
+}
+
+/* SUN SON SOLAR LOGO */
+
+.brand-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+.brand-name {
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--deep);
+    line-height: 1.3;
+}
+
+/* ORIGINAL BRAND MARK */
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--orange),
+        var(--gold)
+    );
+    color: #fff;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+}
+
+.sidebar small {
+    display: block;
+    color: var(--muted);
+    margin: 9px 0 22px;
+}
+
+/* ==========================================
+   SIDEBAR NAVIGATION
+   ========================================== */
+
+.nav {
+    display: grid;
+    gap: 6px;
+}
+
+.nav a {
+    padding: 11px 12px;
+    text-decoration: none;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+    background: var(--orange);
+    color: white;
+}
+
+/* ==========================================
+   MAIN CONTENT
+   ========================================== */
+
+.main {
+    padding: 28px;
+    min-width: 0;
+}
+
+/* DASHBOARD HEADER */
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    margin-bottom: 22px;
+}
+
+.top h1 {
+    margin: 0;
+    font-size: clamp(23px, 3vw, 32px);
+}
+
+.top p {
+    margin: 5px 0 0;
+}
+
+/* USER ROLE */
+
+.pill {
+    background: #fff;
+    color: var(--deep);
+    border-radius: 99px;
+    padding: 9px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   DASHBOARD PANELS
+   ========================================== */
+
+.panel {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 5px 22px #28211b16;
+    min-width: 0;
+}
+
+.panel h2 {
+    margin: 0 0 14px;
+    color: var(--deep);
+    font-size: 19px;
+}
+
+.panel h3 {
+    margin: 12px 0;
+    color: var(--deep);
+    font-size: 15px;
+}
+
+.muted,
+.hint {
+    color: var(--muted);
+}
+
+.hint {
+    font-size: 12px;
+}
+
+/* ==========================================
+   DASHBOARD STATISTICS
+   ========================================== */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.stat {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: 12px;
+    min-width: 0;
+}
+
+.stat strong {
+    display: block;
+    color: var(--deep);
+    font-size: 25px;
+    overflow-wrap: anywhere;
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* ==========================================
+   TWO-COLUMN LAYOUT
+   ========================================== */
+
+.two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.two > div {
+    min-width: 0;
+}
+
+/* ==========================================
+   FORM GRID
+   ========================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 12px;
+    min-width: 0;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    border: 1px solid #d7c5ae;
+    background: #fffdf8;
+    border-radius: 8px;
+    padding: 11px;
+    font: 13px Poppins, Arial, sans-serif;
+}
+
+.field textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* INPUT FOCUS */
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: var(--orange);
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.btn {
+    background: linear-gradient(
+        90deg,
+        var(--orange),
+        var(--gold)
+    );
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font: 600 13px Poppins, Arial, sans-serif;
+    cursor: pointer;
+    color: #fff;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn.secondary {
+    background: var(--cream);
+    color: var(--deep);
+    border: 1px solid var(--border);
+}
+
+.btn.danger {
+    background: #a52e2e;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ACCESSIBILITY FOCUS */
+
+.nav a:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+   ========================================== */
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.inline-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ==========================================
+   TABLES
+   ========================================== */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 620px;
+    font-size: 12px;
+}
+
+th,
+td {
+    padding: 11px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+th {
+    background: var(--cream);
+    color: var(--deep);
+}
+
+td {
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   STATUS TAGS
+   ========================================== */
+
+.tag {
+    display: inline-block;
+    border-radius: 99px;
+    padding: 4px 8px;
+    background: #fff0d8;
+    color: var(--deep);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   CALENDAR
+   ========================================== */
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 5px;
+}
+
+.day {
+    min-height: 92px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.day.empty {
+    background: #fafafa;
+}
+
+.day b {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.event {
+    display: block;
+    background: #ffe0ad;
+    color: #6c3100;
+    padding: 4px;
+    margin: 3px 0;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.cal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.cal-head h3 {
+    margin: 0;
+}
+
+/* ==========================================
+   CHARTS
+   ========================================== */
+
+.chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    height: 180px;
+    padding: 20px 5px 28px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+}
+
+.chart-col {
+    flex: 1;
+    min-width: 65px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+.chart-bar {
+    width: 70%;
+    min-height: 3px;
+    background: linear-gradient(
+        var(--gold),
+        var(--orange)
+    );
+    border-radius: 6px 6px 0 0;
+}
+
+.chart-label {
+    position: absolute;
+    bottom: -24px;
+    font-size: 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.chart-value {
+    position: absolute;
+    top: -18px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   NOTIFICATIONS AND NOTICES
+   ========================================== */
+
+.notice {
+    background: var(--cream);
+    padding: 12px;
+    border-radius: 9px;
+    margin: 8px 0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.notice-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   GRID CARDS
+   ========================================== */
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.grid-cards .notice {
+    margin: 0;
+}
+
+/* ==========================================
+   SUPPORT CHAT
+   ========================================== */
+
+.chat-log {
+    height: 250px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.chat-msg {
+    padding: 9px 12px;
+    background: #fff;
+    border-radius: 10px;
+    margin: 7px 0;
+    max-width: 90%;
+    overflow-wrap: anywhere;
+}
+
+.chat-msg.mine {
+    margin-left: auto;
+    background: #ffe0ad;
+}
+
+/* ==========================================
+   EMPTY STATES
+   ========================================== */
+
+.empty-state {
+    padding: 14px;
+    background: var(--cream);
+    border-radius: 9px;
+    color: var(--muted);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer-section {
+    background: #000;
+    color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 24px;
+}
+
+.footer-section h3 {
+    color: var(--gold);
+    margin-top: 0;
+}
+
+.footer-section p {
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+/* ==========================================
+   STATUS MESSAGE
+   ========================================== */
+
+.status {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--deep);
+    min-height: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   CUSTOMER DASHBOARD
+   ========================================== */
+
+body[data-role="customer"] .nav a.active {
+    background: var(--orange);
+    color: white;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+/* TABLETS AND SMALL LAPTOPS */
+
+@media (max-width: 1050px) {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        height: auto;
+    }
+
+    .nav {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .main {
+        padding: 18px;
+    }
+}
+
+/* MOBILE DEVICES */
+
+@media (max-width: 650px) {
+    .grid-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-label {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 620px) {
+    .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .two,
+    .form-grid,
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .calendar {
+        gap: 2px;
+    }
+
+    .day {
+        padding: 3px;
+        min-height: 75px;
+        font-size: 9px;
+    }
+
+    .event {
+        font-size: 8px;
+        padding: 2px;
+    }
+
+    .brand-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .brand-name {
+        font-size: 17px;
+    }
+}

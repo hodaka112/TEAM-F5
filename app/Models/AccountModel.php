@@ -20,6 +20,21 @@ class AccountModel extends Model
         return $this->db->table($table)->groupStart()->where('email', $login)->orWhere('username', $login)->groupEnd()->get()->getRowArray() ?: null;
     }
 
+    public function customerById(int $customerId): ?array
+    {
+        return $this->db->table('customers')
+            ->select('customer_id, first_name, middle_name, last_name, email, phone_number, address, username')
+            ->where('customer_id', $customerId)
+            ->get()
+            ->getRowArray() ?: null;
+    }
+
+    public function customerPasswordById(int $customerId): ?string
+    {
+        $row = $this->db->table('customers')->select('password')->where('customer_id', $customerId)->get()->getRowArray();
+        return $row['password'] ?? null;
+    }
+
     public function createAccount(array $data, string $type): bool
     {
         if ($type !== 'customer') {
