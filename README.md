@@ -35,9 +35,13 @@ This is our Sun Son Solar website. It uses CodeIgniter 4 for the pages and backe
 
    The migrations add an optional customer link to service requests and an employee role field. Existing requests stay unchanged. Migration `2026-10-24-000003_UpdateNamedEmployeeAccounts` updates the existing Katherine and Sol accounts to administrator access and sets Apollo's existing account as a technician. It requires the process environment variables `TEAMF5_KATHERINE_PASSWORD`, `TEAMF5_SOL_PASSWORD`, and `TEAMF5_APOLLO_PASSWORD`; supply them locally before running migrations, then clear them. They are not stored in source files.
 
-## Run the website
+   ## Run with VS Code F5
 
-From the project folder, run:
+   Open the project folder in VS Code, choose **Sun Son Solar (Chrome)** or **Sun Son Solar (Edge)** in the Run and Debug panel, then press **F5**. VS Code starts the CodeIgniter development server and opens the homepage at **http://localhost:8080/**. The launch task uses `C:\xampp\php\php.exe`; update `.vscode/tasks.json` if PHP is installed elsewhere.
+
+   ## Run the website
+
+   From the project folder, run:
 
 ```powershell
 C:\xampp\php\php.exe composer.phar serve
